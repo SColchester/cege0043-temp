@@ -6,6 +6,8 @@ function startDataUpload() {
     var postString = "name=" + name + "&surname=" + surname + "&module=" + module;
     // pop an alert
     alert (postString);
+    // tell the server what type of data we are uploading
+    processData(postString);
 }
 
 
