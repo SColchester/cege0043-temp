@@ -1,11 +1,11 @@
 function startDataUpload() {
-	//get form values
+	// get form values
 	var name = document.getElementById("name").value;
     var surname = document.getElementById("surname").value;
     var module = document.getElementById("module").value;
     var postString = "name=" + name + "&surname=" + surname + "&module=" + module;
 
-    // now get the checkbox values - separate them with a | so that they can be
+    // get the checkbox values - separate them with a | so that they can be
     // split later on if necessary
     var checkString = "";
     for (var i = 1;i< 5;i++){
@@ -16,7 +16,7 @@ function startDataUpload() {
     }
     postString = postString + "&modulelist="+checkString;
 
-    // now get the radio button values
+    // get the radio button values
     if (document.getElementById("morning").checked) {
     	postString=postString+"&lecturetime=morning";
     }
@@ -24,13 +24,18 @@ function startDataUpload() {
     	postString=postString+"&lecturetime=afternoon";
     }
 
-    // now get the select box values
+    // get the select box values
     var language = document.getElementById("languageselectbox").value;
     postString = postString + "&language="+language;
 
+     // get the geometry values
+    var latitude = document.getElementById("latitude").value;
+    var longitude = document.getElementById("longitude").value;
+    postString = postString + "&latitude=" + latitude + "&longitude=" + longitude;
+
     // pop an alert
     alert (postString);
-    
+
     // tell the server what type of data we are uploading
     processData(postString);
 }
